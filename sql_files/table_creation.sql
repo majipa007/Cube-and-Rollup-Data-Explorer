@@ -19,8 +19,8 @@ CREATE TABLE ecommerce_data (
     ship_state VARCHAR(100),
     ship_postal_code VARCHAR(20),
     ship_country VARCHAR(50),
-    promotion_ids TEXT,
     b2b BOOLEAN,
     fulfilled_by VARCHAR(50)
 );
 
+select * from ecommerce_data limit 5;
