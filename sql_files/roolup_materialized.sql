@@ -20,6 +20,3 @@ SELECT
 FROM public.ecommerce_data
 GROUP BY ROLLUP(EXTRACT(YEAR FROM date), EXTRACT(MONTH FROM date), ship_country, category)
 ORDER BY year, month, ship_country, category;
-
-
-select * from public.ecommerce_data
