@@ -30,7 +30,7 @@ FROM public.region_based_sales;
 try:
     df = pd.read_sql_query(region_based_sales, conn)
 
-    print("Data loaded successfully!")
+    print("data loaded successfully!")
 except Exception as e:
     print(f"Error executing query: {e}")
 finally:
@@ -39,9 +39,9 @@ finally:
 
 
 # Streamlit app
-st.title("State-Level Rollup Data Visualization")
+st.title("State-Level Rollup data Visualization")
 
-st.subheader("Data Overview")
+st.subheader("data Overview")
 st.dataframe(df)
 
 # Sidebar Filters
@@ -55,7 +55,7 @@ filtered_data = df[
 ]
 
 # Show filtered data
-st.subheader("Filtered Data")
+st.subheader("Filtered data")
 st.write(f"State: {selected_state} | Category: {selected_category}")
 st.dataframe(filtered_data)
 

@@ -1,4 +1,8 @@
 postgres_data
 .idea
 .ipynb_checkpoints
-Amazon Sale Report.csv
+airflow/data/Amazon Sale Report.csv
+airflow/standalone_admin_password.txt
+airflow/logs
+airflow/airflow.db
+airflow/airflow.cfg

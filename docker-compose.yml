@@ -10,3 +10,19 @@ services:
       - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+  pipeline:
+    container_name: pipeline
+    image: etl:latest
+    volumes:
+      - ./airflow:/opt/airflow
+    ports:
+      - "8080:8080"
+    user: "${UID}:${GID}"
+    environment:
+      - AIRFLOW_UID=${UID}
+    command: >
+      bash -c "
+      mkdir -p /opt/airflow/logs /opt/airflow/dags /opt/airflow/plugins &&
+      chmod -R 777 /opt/airflow &&
+      airflow standalone
+      "
