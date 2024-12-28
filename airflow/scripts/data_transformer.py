@@ -4,7 +4,7 @@ def data_transformer(file_path):
     try:
         # Postgres Connection
         conn = psycopg2.connect(
-            host="localhost",
+            host="db",
             port=5432,
             database="database",
             user="postgres",

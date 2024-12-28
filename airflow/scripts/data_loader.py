@@ -2,9 +2,6 @@ import pandas as pd
 import psycopg2
 from psycopg2.extras import execute_batch
 
-# Step 1: Read the CSV file
-csv_file_path = "../data/Amazon Sale Report.csv"
-
 
 print("data loaded successfully!")
 def data_loader(csv_file_path):
@@ -14,7 +11,7 @@ def data_loader(csv_file_path):
     data = data.drop(columns=['Unnamed: 22', 'index', 'promotion-ids'])
     # Postgres Connection
     conn = psycopg2.connect(
-        host="localhost",
+        host="db",
         port=5432,
         database="database",
         user="postgres",
@@ -33,5 +30,3 @@ def data_loader(csv_file_path):
     conn.commit()
     cur.close()
     conn.close()
-
-data_loader(csv_file_path)

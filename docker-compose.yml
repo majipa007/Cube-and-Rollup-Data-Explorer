@@ -12,11 +12,13 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
   pipeline:
     container_name: pipeline
-    image: etl:latest
+    image: viz_pipeline:latest
     volumes:
       - ./airflow:/opt/airflow
     ports:
       - "8080:8080"
+      - "8501:8501"  # Streamlit UI
+
     user: "${UID}:${GID}"
     environment:
       - AIRFLOW_UID=${UID}
