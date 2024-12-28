@@ -19,7 +19,7 @@ default_args = {
 # Paths
 data_path = "/opt/airflow/data/Amazon Sale Report.csv"
 sql_script_path = "/opt/airflow/sql_files/roleup_materialized.sql"
-viz_path = "opt/airflow/scripts/viz.py"
+viz_path = "/opt/airflow/scripts/viz.py"
 
 def load_data():
     data_loader(data_path)
@@ -48,7 +48,8 @@ with DAG(
 
     viz = BashOperator(
         task_id='run_viz',
-        bash_command=f"streamlit run {viz_path} --server.port=8501 --server.address=127.0.0.1"
+        execution_timeout=timedelta(minutes=1),  # Stop task if it runs for more than 1 hour
+        bash_command=f"streamlit run {viz_path}"# --server.port=8501 --server.address=0.0.0.0 --server.headless=true"
     )
 
     start >> load >> transform >> viz

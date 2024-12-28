@@ -5,7 +5,7 @@ import psycopg2
 
 # Load the dataset
 # Database connection details
-DB_HOST = "localhost"  # Change if the database is on a different host
+DB_HOST = "db"  # Change if the database is on a different host
 DB_PORT = "5432"
 DB_NAME = "database"
 DB_USER = "postgres"
